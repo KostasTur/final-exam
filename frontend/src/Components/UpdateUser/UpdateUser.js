@@ -1,6 +1,5 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-// import useAxios from '../../Hooks/useAxios';
 
 // Base url for axios
 axios.defaults.baseURL = 'http://localhost:5000';

@@ -69,16 +69,16 @@ app.post('/users', async (req, res) => {
 
 // PUT: update user info based on id
 app.put('/users', async (req, res) => {
-  console.log('hit');
   try {
     if (!req.body) {
       return res.status(400).json({ message: 'missing user input' });
     }
     // deconstucted userId from request body
+    console.log(req.body);
     const { _id } = req.body;
     let update = req.body;
     // let user = await User.findById(id);
-    await User.findOneAndUpdate({ _id: _id }, { update });
+    await User.findOneAndUpdate({ _id: _id }, update);
     const users = await User.find();
 
     res.json({ message: 'user updated', users: users });
