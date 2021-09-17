@@ -4,6 +4,7 @@ import Table from '../Components/Table/Table';
 import axios from 'axios';
 import UpdateUser from '../Components/UpdateUser/UpdateUser';
 import AddUser from '../Components/AddUser/AddUser';
+import { StyledMain } from './AdminPage.styled';
 
 // Base url for axios
 axios.defaults.baseURL = 'http://localhost:5000';
@@ -38,7 +39,7 @@ const AdminPage = () => {
       <header>
         <h1>Administratoriaus Puslapis</h1>
       </header>
-      <main>
+      <StyledMain>
         <section>
           <h2>Vartotojai</h2>
 
@@ -55,7 +56,7 @@ const AdminPage = () => {
         </section>
         <AddUser usersState={usersState} setUsersState={setUsersState} />
         <UpdateUser usersState={usersState} setUsersState={setUsersState} />
-      </main>
+      </StyledMain>
     </>
   );
 };

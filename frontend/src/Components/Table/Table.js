@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { StyledTable } from './Table.styled';
 
 // Base url for axios
 axios.defaults.baseURL = 'http://localhost:5000';
@@ -15,7 +16,7 @@ const Table = ({ usersState, setUsersState }) => {
     setUsersState(updatedUsersState);
   };
   return (
-    <div>
+    <StyledTable>
       {usersState && (
         <table>
           <thead>
@@ -47,7 +48,7 @@ const Table = ({ usersState, setUsersState }) => {
           </tbody>
         </table>
       )}
-    </div>
+    </StyledTable>
   );
 };
 

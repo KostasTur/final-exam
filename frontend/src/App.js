@@ -1,10 +1,16 @@
 import AdminPage from './Pages/AdminPage';
+import styled from 'styled-components';
 
+const StyledApp = styled.div`
+  h1 {
+    text-align: center;
+  }
+`;
 function App() {
   return (
-    <div className='App'>
+    <StyledApp className='App'>
       <AdminPage />
-    </div>
+    </StyledApp>
   );
 }
 
