@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://chuck-j.herokuapp.com/api';
+axios.defaults.baseURL = 'http://localhost:5000';
 
 const useAxios = (params) => {
   const [response, setResponse] = useState(null);

@@ -19,7 +19,9 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then((result) =>
     app.listen(PORT, () =>
-      console.log(`((: Server is running on port ${PORT} `)
+      console.log(
+        `((: Connected to mongoDB. Server is running on port ${PORT} `
+      )
     )
   )
   .catch((err) => console.log(err));
@@ -45,18 +47,19 @@ app.post('/users', async (req, res) => {
   if (!req.body) return res.status(400).json({ message: 'missing user input' });
   const users = await User.find();
   const userExists = users.some((user) => user.email === req.body.email);
-  if (teamExists) {
+  if (userExists) {
     res.json({
-      registrationStatus: 'failed',
+      status: 'failed',
       message: 'User with provided email already exists!',
     });
   } else {
     try {
       const user = new User(req.body);
-      const newUser = await user.save();
+      await user.save();
+      const users = await User.find();
       res.json({
         status: 'success',
-        user: newUser,
+        users: users,
       });
     } catch (error) {
       console.log(error);
@@ -66,22 +69,19 @@ app.post('/users', async (req, res) => {
 
 // PUT: update user info based on id
 app.put('/users', async (req, res) => {
+  console.log('hit');
   try {
-    if (!req.body)
+    if (!req.body) {
       return res.status(400).json({ message: 'missing user input' });
+    }
     // deconstucted userId from request body
     const { _id } = req.body;
     let update = req.body;
     // let user = await User.findById(id);
-    const updatedUser = await User.findOneAndUpdate(
-      { _id: _id },
-      { update },
-      {
-        new: true,
-      }
-    );
+    await User.findOneAndUpdate({ _id: _id }, { update });
+    const users = await User.find();
 
-    res.json({ user: updatedUser });
+    res.json({ message: 'user updated', users: users });
   } catch (error) {
     console.log(error);
   }
@@ -91,15 +91,8 @@ app.put('/users', async (req, res) => {
 app.delete('/users/:id', async (req, res) => {
   try {
     const userId = req.params.id;
-    const deletedUser = await User.findByIdAndDelete(id, function (err, user) {
-      if (err) {
-        console.log(err);
-        res.json({ message: 'delete failed' });
-      } else {
-        console.log('Deleted : ', user);
-      }
-    });
-    res.json({ message: 'car deleted' });
+    const deletedUser = await User.findByIdAndDelete(userId);
+    res.json({ message: 'user deleted' });
   } catch (err) {
     console.log(err);
     res.json({ message: 'delete failed' });
