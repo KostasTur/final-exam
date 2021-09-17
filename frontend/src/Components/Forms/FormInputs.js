@@ -1,9 +1,10 @@
 import React from 'react';
+import { StyledInputs } from './FormInputs.styled';
 
 const FormInputs = ({ state, handleChange }) => {
   return (
     <>
-      <div>
+      <StyledInputs>
         <label htmlFor='name'>Vardas</label>
         <input
           type='text'
@@ -12,8 +13,8 @@ const FormInputs = ({ state, handleChange }) => {
           value={state.name}
           onChange={(e) => handleChange(e)}
         />
-      </div>
-      <div>
+      </StyledInputs>
+      <StyledInputs>
         <label htmlFor='email'>El. paštas</label>
         <input
           type='email'
@@ -22,9 +23,9 @@ const FormInputs = ({ state, handleChange }) => {
           onChange={(e) => handleChange(e)}
           required
         />
-      </div>
+      </StyledInputs>
 
-      <div>
+      <StyledInputs>
         <label htmlFor='password'>Slaptažodis</label>
         <input
           type='text'
@@ -33,8 +34,8 @@ const FormInputs = ({ state, handleChange }) => {
           value={state.password}
           onChange={(e) => handleChange(e)}
         />
-      </div>
-      <div>
+      </StyledInputs>
+      <StyledInputs>
         <label htmlFor='age'>Amžius</label>
         <input
           type='number'
@@ -44,7 +45,7 @@ const FormInputs = ({ state, handleChange }) => {
           onChange={(e) => handleChange(e)}
           required
         />
-      </div>
+      </StyledInputs>
     </>
   );
 };
