@@ -4,7 +4,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 5px;
   /* width: ${({ update }) => (update ? `` : `50%`)}; */
-  font-size: 2rem;
+  font-size: 1rem;
   /* font-weight: 500;   */
   margin-top: 10px;
   /* padding: ${({ update }) => (update ? `10px 35px` : `7px 45px`)}; */

@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
 import FormInputs from '../Forms/FormInputs';
+import { StyledForm } from '../Forms/Form.styled';
 
 // Base url for axios
 axios.defaults.baseURL = 'http://localhost:5000';

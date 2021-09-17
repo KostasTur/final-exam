@@ -1,3 +1,6 @@
 import styled from 'styled-components';
 
-const StyledInputs = styled.div``;
+export const StyledInputs = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;

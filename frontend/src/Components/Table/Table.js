@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { StyledTable } from './Table.styled';
+import { Button } from '../Button/Button';
 
 // Base url for axios
 axios.defaults.baseURL = 'http://localhost:5000';
@@ -36,12 +37,9 @@ const Table = ({ usersState, setUsersState }) => {
                 <td>{item.email}</td>
                 <td>{item.age}</td>
                 <td>
-                  <button
-                    className='btn-primary'
-                    onClick={() => deleteUser(item._id)}
-                  >
+                  <Button clear onClick={() => deleteUser(item._id)}>
                     Ištrinti
-                  </button>
+                  </Button>
                 </td>
               </tr>
             ))}

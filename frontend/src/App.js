@@ -2,7 +2,8 @@ import AdminPage from './Pages/AdminPage';
 import styled from 'styled-components';
 
 const StyledApp = styled.div`
-  h1 {
+  h1,
+  h2 {
     text-align: center;
   }
 `;
