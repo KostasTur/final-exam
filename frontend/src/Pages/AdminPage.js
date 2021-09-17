@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import AddUserForm from '../Components/Forms/AddUserForm';
+// import AddUserForm from '../Components/Forms/AddUserForm';
 import Table from '../Components/Table/Table';
 import axios from 'axios';
 import UpdateUser from '../Components/UpdateUser/UpdateUser';
+import AddUser from '../Components/AddUser/AddUser';
 
 // Base url for axios
 axios.defaults.baseURL = 'http://localhost:5000';
@@ -52,15 +53,7 @@ const AdminPage = () => {
             </div>
           )}
         </section>
-        <section>
-          <h2>Pridėti vartotoją</h2>
-          <AddUserForm usersState={usersState} setUsersState={setUsersState} />
-        </section>
-
-        {/* <section>
-          <h2>Redaguoti vartotoją</h2>
-          <AddUserForm usersState={usersState} setUsersState={setUsersState} />
-        </section> */}
+        <AddUser usersState={usersState} setUsersState={setUsersState} />
         <UpdateUser usersState={usersState} setUsersState={setUsersState} />
       </main>
     </>

@@ -1,10 +1,11 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
+import FormInputs from '../Forms/FormInputs';
 
 // Base url for axios
 axios.defaults.baseURL = 'http://localhost:5000';
 
-const initialState = { name: '', email: '', password: '', age: '' };
+const initialState = { name: '', email: '', password: '', age: 0 };
 const reducer = (state, action) => {
   switch (action.type) {
     case 'LOAD':
@@ -72,48 +73,7 @@ const UpdateUser = ({ usersState, setUsersState }) => {
             ))}
           </select>
         )}
-        <div>
-          <label htmlFor='name'>Vardas</label>
-          <input
-            type='text'
-            name='name'
-            required
-            value={state.name}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div>
-          <label htmlFor='email'>El. paštas</label>
-          <input
-            type='email'
-            name='email'
-            value={state.email}
-            onChange={(e) => handleChange(e)}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor='password'>Slaptažodis</label>
-          <input
-            type='text'
-            name='password'
-            required
-            value={state.password}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div>
-          <label htmlFor='age'>Amžius</label>
-          <input
-            type='number'
-            name='age'
-            placeholder='age'
-            value={+state.age}
-            onChange={(e) => handleChange(e)}
-            required
-          />
-        </div>
+        <FormInputs state={state} handleChange={handleChange} />
 
         <input type='submit' value='Atnaujinti' />
       </form>
