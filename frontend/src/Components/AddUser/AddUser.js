@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
 import FormInputs from '../Forms/FormInputs';
+import { StyledForm } from '../Forms/Form.styled';
 
 // Base url for axios
 axios.defaults.baseURL = 'http://localhost:5000';
@@ -48,11 +49,11 @@ const AddUser = ({ setUsersState }) => {
   return (
     <section>
       <h2>Pridėti vartotoją</h2>
-      <form onSubmit={addUser}>
+      <StyledForm onSubmit={addUser}>
         <FormInputs state={state} handleChange={handleChange} />
 
         <input type='submit' value='Pridėti' />
-      </form>
+      </StyledForm>
     </section>
   );
 };

@@ -61,7 +61,7 @@ const UpdateUser = ({ usersState, setUsersState }) => {
   return (
     <section>
       <h2>Redaguoti vartotoją</h2>
-      <form onSubmit={updateUser}>
+      <StyledForm onSubmit={updateUser}>
         {usersState && (
           <select onChange={(e) => handleSelect(e)}>
             <option key={1} value={''}>
@@ -77,7 +77,7 @@ const UpdateUser = ({ usersState, setUsersState }) => {
         <FormInputs state={state} handleChange={handleChange} />
 
         <input type='submit' value='Atnaujinti' />
-      </form>
+      </StyledForm>
     </section>
   );
 };
